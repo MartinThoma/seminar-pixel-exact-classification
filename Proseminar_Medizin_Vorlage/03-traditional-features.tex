@@ -6,20 +6,20 @@ The most commonly used features are explained in the following.
 
 \subsubsection{Pixel Color}
 Pixel color in different image spaces (e.g. 3~features for RGB, 3~features for
-HSV, 1~feature for the gray-value). A typical image is in the RGB color space,
-but depending on the classifier and the problem another color space might
-result in better segmentations. RGB, YcBcr, HSL, Lab and YIQ are some examples
-used by \cite{cohen2015memory}. No single color space has been proven to be
-superior to all others in all contexts~\cite{cheng2001color}. However, the most
-common choices seem to be RGB and HSI. Reasons for choosing RGB is simplicity
-and the support by programming languages, whereas the choice of the HSI color
-space might make it simpler for the classifier to get invariant to
-illumination. One reason for choosing CIE-L*a*b* color space is that it
-approximates human perception of brightness~\cite{kasson1992analysis}. It
-follows that choosing the L*a*b color space helps algorithms to detect
-structures which are seen by humans. Another way of improving the structure
-within an image is histogram equalization, which can be applied to improve
-contrast~\cite{pizer1987adaptive,4228537}.
+HSV, 1~feature for the gray-value) are the most widely used features. A typical
+image is in the RGB color space, but depending on the classifier and the
+problem another color space might result in better segmentations. RGB, YcBcr,
+HSL, Lab and YIQ are some examples used by \cite{cohen2015memory}. No single
+color space has been proven to be superior to all others in all
+contexts~\cite{cheng2001color}. However, the most common choices seem to be RGB
+and HSI. Reasons for choosing RGB is simplicity and the support by programming
+languages, whereas the choice of the HSI color space might make it simpler for
+the classifier to get invariant to illumination. One reason for choosing
+CIE-L*a*b* color space is that it approximates human perception of
+brightness~\cite{kasson1992analysis}. It follows that choosing the L*a*b color
+space helps algorithms to detect structures which are seen by humans. Another
+way of improving the structure within an image is histogram equalization, which
+can be applied to improve contrast~\cite{pizer1987adaptive,4228537}.
 
 \subsubsection{Histogram of oriented Gradients}
 \Gls{HOG} features interpret the image as a discrete function
@@ -29,7 +29,7 @@ of $x$ and $y$. Now the original image got transformed to two feature maps of
 equal size which represents the gradient. These feature maps are splitted into
 patches and a histogram of the directions is calculated for each patch.
 \gls{HOG} features were proposed in~\cite{1467360} and are used
-in~\cite{bourdev2010detecting,felzenszwalb2010object}.
+in~\cite{bourdev2010detecting,felzenszwalb2010object} for segmentation tasks.
 
 
 \subsubsection{SIFT}
@@ -51,17 +51,16 @@ combination with \gls{SIFT} feature descriptors in~\cite{csurka2008simple}.
 
 
 \subsubsection{Poselets}
-\textit{Poselets} were used successfully
-in~\cite{bourdev2010detecting,brox2011object}. Those features rely on manually
-added extra keypoints such as \enquote{right shoulder}, \enquote{left
-shoulder}, \enquote{right knee} and \enquote{left knee}. They were originally
-used for human pose estimation. Finding those extra keypoints is easily
-possible for well-known image classes like humans. However, it is difficult for
-classes like airplanes, ships, organs or cells where the human annotators do
-not know the keypoints. Additionally, the keypoints have to be chosen for every
-single class. There are strategies to deal with those problems like
-viewpoint-dependent keypoints.
-
+\textit{Poselets} rely on manually added extra keypoints such as \enquote{right
+shoulder}, \enquote{left shoulder}, \enquote{right knee} and \enquote{left
+knee}. They were originally used for human pose estimation. Finding those extra
+keypoints is easily possible for well-known image classes like humans. However,
+it is difficult for classes like airplanes, ships, organs or cells where the
+human annotators do not know the keypoints. Additionally, the keypoints have to
+be chosen for every single class. There are strategies to deal with those
+problems like viewpoint-dependent keypoints. Poselets were used
+in~\cite{bourdev2010detecting} to detect people and in~\cite{brox2011object}
+for general object detection of the PASCAL VOC dataset.
 
 \subsubsection{Textons}\label{subsubsec:textons}
 A \textit{texton} is the minimal building block of vision. The computer vision

@@ -7,15 +7,15 @@ in the computer vision community. Features which can be used for segmentation
 are described in \cref{subsec:features}, a very brief overview of unsupervised,
 non-semantic segmentation is given in
 \cref{subsec:unsupervised-traditional-segmentation}, Random Decision
-Forests are described in \cref{subsec:random-forests}
-%, Markov Random Fields in \cref{subsec:markov-random-fields}
+Forests are described in \cref{subsec:random-forests}, Markov Random Fields in \cref{subsec:markov-random-fields}
  and \glspl{SVM} in
 \cref{subsec:trad-SVM}.
 Postprocessing is covered in \cref{subsec:post-processing-methods}.
 
 It should be noted that algorithms can use combination of methods. For example,
 \cite{tighe2014scene} makes use of a combination of a \gls{SVM} and a
-\gls{MRF}.
+\gls{MRF}. Also, auto-encoders can be used to learn features which in turn
+can be used by any classifier.
 
 % TODO: The respective advantages of the classifiers are discussed in
 % \cref{subsec:traditional-approaches-discussion}.
@@ -23,8 +23,8 @@ It should be noted that algorithms can use combination of methods. For example,
 \input{03-traditional-features}
 \input{03-traditional-unsupervised}
 \input{03-traditional-approaches-random-forests}
-% \input{03-traditional-approaches-markov-random-fields} TODO
 \input{03-traditional-approaches-svm}
+\input{03-traditional-approaches-markov-random-fields}
 \input{03-traditional-post-processing}
 
 % TODO:

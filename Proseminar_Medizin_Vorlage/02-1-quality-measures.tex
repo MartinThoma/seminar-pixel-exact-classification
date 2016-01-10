@@ -44,9 +44,10 @@ called per-pixel rate and defined as $\frac{\sum_{i=1}^k n_{ii}}{\sum_{i=1}^k
 t_i}$. Taking the pixel-wise classification accuracy has two major drawbacks:
 
 \begin{problemnr}
-    \item \label{item:problem-large-regions} Tasks like segmenting images for self-driving cars have large regions
-          which have one class. This makes achieving classification accuracies
-          of more than \SI{30}{\percent} with a priori knowledge only possible.
+    \item \label{item:problem-large-regions} Tasks like segmenting images for
+          autonomous cars have large regions which have one class. This makes
+          achieving classification accuracies of more than \SI{30}{\percent}
+          with a priori knowledge only possible.
     \item \label{item:problem-labeling-granularity} The manually labeled images
           could have a more coarse labeling. For example, a human classifier
           could have labeled a region as
@@ -70,21 +71,9 @@ class. This class gets completely ignored for all quality measures. Hence the
 total number of pixels is assumed to be $\text{width} \cdot \text{height} - \text{number of void pixels}$.
 
 One way to deal with \cref{item:problem-large-regions} and
-\cref{item:problem-labeling-granularity} is giving a confusion matrix as
-done in \cite{shotton2006textonboost}. However, this approach is not feasible
-if many classes are given.
-
-
-A lot of other measures for the accuracy of segmentations were proposed for
-non-semantic segmentation. One of those accuracy measures is \textit{Normalized
-Probabilistic Rand} (NPR) index which was introduced in
-\cite{unnikrishnan2005measure} and evaluated in~\cite{celebi2009improved}
-on dermoscopy images. Other non-semantic segmentation measures were introduced
-in~\cite{martin2001database}, but the reason for creating them seems
-to be to deal with the under-defined task description of non-semantic
-segmentation. These accuracy measures try to deal with different levels of
-coarsity of the segmentation. This is much less of a problem in semantic
-segmentation and thus those measures are not explained here.
+\cref{item:problem-labeling-granularity} is giving a \textit{confusion matrix}
+as done in \cite{shotton2006textonboost}. However, this approach is not
+feasible if many classes are given.
 
 The $F$-measure is useful for binary classification task such as the KITTI road
 segmentation benchmark~\cite{Fritsch2013ITSC} or crypt segmentation as done
@@ -95,12 +84,24 @@ where $\beta=1$ is chosen in most cases and \texttt{tp} means \textit{true
 positive}, \texttt{fn} means \textit{false negative} and  \texttt{fp} means
 \textit{false positive}.
 
+Finally, it should be noted that a lot of other measures for the accuracy of
+segmentations were proposed for non-semantic segmentation. One of those
+accuracy measures is \textit{Normalized Probabilistic Rand}~(NPR) index which
+was introduced in \cite{unnikrishnan2005measure} and evaluated
+in~\cite{celebi2009improved} on dermoscopy images. Other non-semantic
+segmentation measures were introduced in~\cite{martin2001database}, but the
+reason for creating them seems to be to deal with the under-defined task
+description of non-semantic segmentation. These accuracy measures try to deal
+with different levels of coarsity of the segmentation. This is much less of a
+problem in semantic segmentation and thus those measures are not explained
+here.
+
 
 \subsubsection{Speed}%
 \label{subsubsec:speed-quality-measure}%
 A maximum upper bound on the execution time for the inference on a single image
 is a hard requirement for some applications. For example, in the case of
-self-driving cars an algorithm which classifies pixel as street or no-street
+autonomous cars an algorithm which classifies pixel as street or no-street
 and thus makes a semantic segmentation, every image needs to be processed
 within \SI{20}{\milli\second}~\cite{bittel2015pixel}.
 

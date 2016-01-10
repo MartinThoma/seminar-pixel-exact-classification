@@ -3,8 +3,9 @@
 \subsection{Datasets}
 
 The computer vision community produced a couple of different datasets which are
-publicly available. In the following, only the most widely used ones are
-described. An overview over the quantity and the kind of data is given by
+publicly available. In the following, only the most widely used ones as well as
+a couple of medical databases are described. An overview over the quantity and
+the kind of data is given by
 \cref{table:segmentation-databases}.
 
 
@@ -19,8 +20,10 @@ challenge was added~\cite{pascal-voc-2007}.
 
 The dataset consists of annotated photographs from www.flicker.com, a photo
 sharing website. There are multiple challenges for PASCAL VOC. The 2012
-competition had 5~challenges of which one is a segmentation challenge where
-a single class label was given for each pixel.
+competition had five~challenges of which one is a segmentation challenge where
+a single class label was given for each pixel. The classes are: aeroplane,
+bicycle, bird, boat, bottle, bus, car, cat, chair, cow, dining table, dog,
+horse, motorbike, person, potted plant, sheep, sofa, train, tv/monitor.
 
 Although no new competitions will be held, new algorithms can be evaluated on
 the 2010, 2011 and 2012 data via
@@ -30,17 +33,15 @@ The PASCAL VOC segmentation challenges use the \textit{segmentation over union}
 criterion (see \cref{subsec:quality-measures}).
 
 
-\subsubsection{MSRCv2}
+\subsubsection{MSRCv2}\label{subsubsec:MSRCv2}
 
-Microsoft Research has published a database of 591 photographs with pixel-wise
-annotation of 21~classes: aeroplane, bike, bird, boat, body,
-book, building, car, cat, chair, cow, dog, face, flower, grass, road, sheep,
-sign, sky, tree, water. Additionally, there is a \texttt{void} label for pixels
-which do not belong to any of the 21~classes or which are close to the
-segmentation boundary. This allows a \enquote{rough and quick hand-segmentation
-which does not align exactly with the object boundaries}~\cite{shotton2006textonboost}.
-
-The dataset is described in~\cite{shotton2006textonboost}.
+Microsoft Research has published a database of 591~photographs with pixel-wise
+annotation of 21~classes: aeroplane, bike, bird, boat, body, book, building,
+car, cat, chair, cow, dog, face, flower, grass, road, sheep, sign, sky, tree,
+water. Additionally, there is a \texttt{void} label for pixels which do not
+belong to any of the 21~classes or which are close to the segmentation
+boundary. This allows a \enquote{rough and quick hand-segmentation which does
+not align exactly with the object boundaries}~\cite{shotton2006textonboost}.
 
 \subsubsection{Medical Databases}
 
