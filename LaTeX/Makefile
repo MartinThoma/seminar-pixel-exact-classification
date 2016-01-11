@@ -8,6 +8,9 @@ make:
 	pdflatex $(SOURCE).tex -output-format=pdf # Referenzen einbinden
 	make clean
 
+move:
+	mv $(SOURCE).pdf pixel-seminar-martin-thoma-`date +'%Y-%m-%d'`.pdf
+
 ebook:
 	latexml --dest=$(SOURCE).xml $(SOURCE).tex
 	latexmlpost -dest=$(SOURCE).html $(SOURCE).xml
