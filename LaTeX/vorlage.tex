@@ -1,21 +1,15 @@
-\RequirePackage[l2tabu, orthodox]{nag}%TODO: Remove this line after checking
-%\documentclass[11pt, a4paper,twoside]{scrartcl} % Seminar
 \documentclass[technote,a4paper,leqno]{IEEEtran}
 \pdfoutput=1
 
 % packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{tabularx}
 \usepackage{amsmath,amssymb}
 \usepackage[pdftex]{graphicx}
 \usepackage{caption}
 \usepackage[hang]{subfigure}
 \captionsetup{format=hang}
 \usepackage{url}
-\usepackage{ifthen}
-\usepackage{url}
-\usepackage{breakurl}
 \usepackage[super]{nth}
 \usepackage[breaklinks]{hyperref}
 \def\UrlBreaks{\do\/\do-}
@@ -26,16 +20,12 @@
 \usepackage{pbox}
 \usepackage{braket} % needed for nice printing of sets
 \usepackage[english]{babel}
-\usepackage[headsepline,footsepline,plainheadsepline]{scrpage2}
-\usepackage{changepage}
 \usepackage{mathtools}
 \usepackage[inner=2.5cm,outer=2.5cm,top=2.5cm,bottom=2cm,includeheadfoot]{geometry}
 \usepackage[xindy,toc]{glossaries}
 \loadglsentries[main]{glossary}
 \makeglossaries
 
-% Packages like in our pixel-wise-street-segmentation
-% nameinlink, noabbrev: not supported by arxiv :-(
 \usepackage[nameinlink, noabbrev,capitalise]{cleveref} % has to be after hyperref, nthe l.137 ...eam attr{/N 4}  file{sRGBIEC1966-2.1.icmorem, amsthm
 
 
@@ -69,7 +59,6 @@
 info@martin-thoma.de
 }
 
-% arxiv doesn't like \sep
 \hypersetup{
     pdfauthor   = {Martin Thoma},
     pdfkeywords = {semantic segmentation, pixelwise classification, pixel-level classification},
@@ -89,7 +78,6 @@ info@martin-thoma.de
 \input{05-typical-problems}
 % \input{06-speed-ups}
 % \input{07-image-enhancement}
-
 
 \newpage
 \bibliography{literature}
