@@ -2,7 +2,7 @@
 
 \subsection{SVMs}\label{subsec:trad-SVM}%
 
-\Glspl{SVM} are well-studied binary classifiers which can be described by four
+\Glspl{SVM} are well-studied binary classifiers which can be described by five
 central ideas. For those ideas, the training data is represented as
 $(\mathbf{x}_i, y_i)$ where $\mathbf{x}_i$ is the feature vector and $y_i \in
 \Set{-1, 1}$ the binary label for training example $i \in \Set{1, \dots, m}$.
@@ -72,14 +72,14 @@ $(\mathbf{x}_i, y_i)$ where $\mathbf{x}_i$ is the feature vector and $y_i \in
           \[K_{\text{tanh}}(\mathbf{x}_i, \mathbf{x}_j) = \tanh(\gamma \langle \mathbf{x}_i, \mathbf{x}_j \rangle - r)\]
           where the parameter $\gamma$ determines how much influence single
           training examples have.
+    \item The described \glspl{SVM} can only distinguish between two classes.
+          Common strategies to expand those binary classifiers to multi-class
+          classification is the \textit{one-vs-all} and the \textit{one-vs-one}
+          strategy. In the one-vs-all strategy $n$ classifiers have to be
+          trained which can distinguish one of the $n$ classes against all
+          other classes. In the one-vs-one strategy $\frac{n^2 - n}{2}$
+          classifiers are trained; one classifier for each pair of classes.
 \end{enumerate}
-
-The described \glspl{SVM} can only distinguish between two classes. Common
-strategies to expand those binary classifiers to multi-class classification is
-the \textit{one-vs-all} and the \textit{one-vs-one} strategy. In the one-vs-all
-strategy $n$ classifiers have to be trained which can distinguish one of the $n$
-classes against all other classes. In the one-vs-one strategy $\frac{n^2 - n}{2}$
-classifiers are trained; one classifier for each pair of classes.
 
 A detailed description of \glspl{SVM} can be found in~\cite{burges1998tutorial}.
 
