@@ -10,8 +10,9 @@ $(\mathbf{x}_i, y_i)$ where $\mathbf{x}_i$ is the feature vector and $y_i \in
 
 \begin{enumerate}
     \item If data is linearly separable, it can be separated by a hyperplane.
-          There is one hyperplane which maximizes the distance to the
-          datapoints. This hyperplane should be taken:\\
+          There is one hyperplane which maximizes the distance to the next
+          datapoints (\textit{support vectors}). This hyperplane should be
+          taken:\\
           \begin{equation*}
           \begin{aligned}
               \minimize_{\mathbf{w}, b}\,&\frac{1}{2} \|\mathbf{w}\|^2\\
@@ -31,6 +32,10 @@ $(\mathbf{x}_i, y_i)$ where $\mathbf{x}_i$ is the feature vector and $y_i \in
               \text{s.t. }& \forall_{i=1}^m y_i \cdot (\langle \mathbf{w}, \mathbf{x}_i\rangle + b) \geq 1 - \xi_i
           \end{aligned}
           \end{equation*}
+
+          Note that \(0 \le \xi_i \le 1\) means that the data point is within
+          the margin, whereas \(\xi_i \ge 1\) means it is misclassified. An
+          \gls{SVM} with $C > 0$ is also called a \textit{soft-margin \gls{SVM}}.
     \item The primal problem is to find the normal vector $\mathbf{w}$ and the
           bias $b$. The dual problem is to express $\mathbf{w}$ as a linear
           combination of the training data $\mathbf{x}_i$:
