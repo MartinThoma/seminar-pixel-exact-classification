@@ -13,9 +13,11 @@ Forests, the classifiers are decision trees. A decision tree is a tree where
 each inner node uses one or more features to decide in which branch to descend.
 Each leaf is a class.
 
-A strength of Random Decision Forests compared to many other classifiers like
+One strength of Random Decision Forests compared to many other classifiers like
 \glspl{SVM} and neural networks is that the scale of measure of the features
-(nominal, ordinal, interval, ratio) can be arbitrary.
+(nominal, ordinal, interval, ratio) can be arbitrary. Another advantage of
+Random Decision Forests compared to \glspl{SVM}, for example, is the speed
+of training and classification.
 
 Random decision trees were extensively studied in the past 20~years and a
 multitude of training algorithms has been proposed (e.g. ID3
@@ -39,3 +41,6 @@ $\SI{320}{\pixel} \times \SI{213}{\pixel}$ images on a single
 \SI{2.7}{\giga\hertz} core. On the Pascal VOC~2007 dataset, they report an
 average per-pixel accuracy for their best segmentation system
 of~\SI{42}{\percent}.
+
+An excellent introduction to Random Decision Forests for semantic segmentation
+is given by~\cite{schroff2008object}.
