@@ -27,7 +27,7 @@ There are also unsupervised segmentation algorithms which do not distinguish
 classes at all (see \cref{subsec:unsupervised-traditional-segmentation}) as
 well as segmentation algorithms which are able to recognize when they don't
 know a class. For example, in~\cite{gould2008multi} a
-\textit{void class} was added for classes which were not in the training set.
+\textbf{void class} was added for classes which were not in the training set.
 Such a void class was also used in the MSRCv2 dataset (see
 \cref{subsubsec:MSRCv2}) to make it possible to make more coarse segmentations
 and thus having to spend less time annotating the image.
@@ -39,12 +39,12 @@ see a glass of water standing on a table we can automatically say that there is
 the glass and behind it the table, even if we only had a single image and were
 not allowed to move. This means we assign the coordinates of the glass at the
 same time two labels: Glass and table. Although there is much more work being
-done on \textit{single class affiliation} segmentation algorithms, there is a
-publication about \textit{multiple class affiliation}
+done on \textbf{single class affiliation} segmentation algorithms, there is a
+publication about \textbf{multiple class affiliation}
 segmentation~\cite{levin2008spectral}. Similarly, recent publications in
 pixel-level object segmentation used layered models~\cite{yang2012layered}.
 
-
+\goodbreak
 \subsection{Input Data}\label{subsec:input-data}
 The available data which can be used for the inference of a segmentation varies
 by application.
@@ -77,12 +77,12 @@ by application.
 
 
 \subsection{Operation state}\label{subsec:operation-state}
-The operation state of the classifying machine can either be \textit{active} as
+The operation state of the classifying machine can either be \textbf{active} as
 in~\cite{schiebener2011segmentation,schiebener2012discovery} where robots can
-move objects to find a segmentation or \textit{passive}, where the received
+move objects to find a segmentation or \textbf{passive}, where the received
 image cannot be influenced. However, being in a passive situation can be
 divided further by separating segmentation algorithms working in a completely
-\textit{automatic} fashion versus algorithms working in an \textit{interactive}
+\textbf{automatic} fashion versus algorithms working in an \textbf{interactive}
 mode. One example would a system where the user clicks on the background or
 marks a coarse segmentation and the algorithm finds a fine-grained
 segmentation.
