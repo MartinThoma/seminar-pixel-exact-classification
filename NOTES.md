@@ -4,13 +4,6 @@
 * http://www.eraseimage.com/Experiment
 
 
-## Definitions
-
-* Segmentation / classification?
-* "Semantic" segmentation vs segemntation?
-* Pixel-level / pixel-wise / pixel-exact?
-
-
 ## Journals
 
 1. [IEEE Conference on Computer Vision and Pattern Recognition, CVPR](http://www.pamitc.org/cvpr16/)
@@ -19,3 +12,29 @@
 4. [European Conference on Computer Vision](http://eccv2016.org/)
 5. [IEEE International Conference on Computer Vision, ICCV](http://pamitc.org/iccv15/)
 6. [International Journal of Computer Vision]()
+
+
+## Questions
+
+## StackExchange
+* [Is there a difference between “classification” and “labeling”?](http://datascience.stackexchange.com/q/9074/8820)
+* [What is “semantic segmentation” compared to “segmentation” and “scene labeling”?](http://stackoverflow.com/q/33947823/562769)
+* [How is per-class rate defined?](http://dsp.stackexchange.com/q/27506/9101)
+
+
+## Misc
+
+* What are context cues (see http://www.inf-cv.uni-jena.de/Research/Semantic+Segmentation/Urban+Scene+Understanding.html)
+* Gaussian Process Inference (see http://www.inf-cv.uni-jena.de/Research/Semantic+Segmentation/Urban+Scene+Understanding.html)
+
+## Misc
+
+### Object Segmentation by Alignment of Poselet Activations to Image Contours
+
+Annotation with Amazon Mechanical Turk is described
+
+
+### Videos
+
+* [NYU Semantic Segmentation with a Convolutional Network (33 categories)](https://www.youtube.com/watch?v=ZJMtDRbqH40)
+* [Microsoft Deep Learning Semantic Image Segmentation](https://www.youtube.com/watch?v=FroRjEejA30)
