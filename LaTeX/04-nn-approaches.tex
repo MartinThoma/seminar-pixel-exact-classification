@@ -3,13 +3,13 @@
 \section{Neural Networks for Semantic Segmentation}\label{sec:nn}
 
 Artificial neural networks are classifiers which are inspired by biologic
-neurons. Every single artificial neuron has some inputs which get weighted and
+neurons. Every single artificial neuron has some inputs which is weighted and
 sumed up. Then, the neuron applies a so called \textit{activation function} to
 the weighted sum and gives an output. Those neurons can take either a feature
 vector as input or the output of other neurons. In this way, they build up
 feature hierarchies.
 
-The parameters they learn are the \textit{weights} $w \in \mathbb{R}$. They get
+The parameters they learn are the \textit{weights} $w \in \mathbb{R}$. They are
 learned by gradient descent. To do so, an error function --- usually
 cross-entropy or mean squared error --- is necessary. For the gradient descent
 algorithm, one sees the labeled training data as given, the weights as
@@ -19,8 +19,8 @@ problem.
 
 There are lots of ideas around neural networks like regularization, better
 optimization algorithms, automatically building up architectures, design
-choices for activation functions. I will not go into detail here, but I want to
-outline some of the mayor breakthroughs.
+choices for activation functions. This is not explained in detail here, but
+some of the mayor breakthroughs are outlined.
 
 \Glspl{CNN} are neural networks which learn image filters. They drastically
 reduce the number of parameters which have to be learned while being still

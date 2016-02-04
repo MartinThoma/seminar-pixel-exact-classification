@@ -2,17 +2,19 @@
 
 \subsection{Quality measures for evaluation}%
 \label{subsec:quality-measures}%
-A performance measure is a crucial part of any machine learning system, but
-there are other measures of quality which matter when segmentation algorithms
-are compared. This section gives an overview of those quality measures.
+A performance measure is a crucial part of any machine learning system. As
+users of a semantic segmentation system expect correct results, the accuracy is
+the most commonly used performance measure, but there are other measures of
+quality which matter when segmentation algorithms are compared. This section
+gives an overview of those quality measures.
 
 
 \subsubsection{Accuracy}
 Showing the correctness of the segmentation hypotheses is done in most
 publications about semantic segmentation. However, there are a couple of
 different ways how this accuracy can be displayed. One way to give readers a
-first impression of the obtained segmentations is by showing examples such
-as~\cref{fig:segmentation-example}.
+first qualitative impression of the obtained segmentations is by showing
+examples such as~\cref{fig:segmentation-example}.
 
 \begin{figure}
 \centering
@@ -28,7 +30,7 @@ as~\cref{fig:segmentation-example}.
 
 However, this can only support the explanation of particular problems or
 showcase special situation. For meaningful information about the overall
-accuracy, there are a couple of metrics.
+accuracy, there are a couple of metrics how accuracy can be defined.
 
 For this section, let $k \in \mathbb{N}$ be the number of classes, $n_{ij} \in
 \mathbb{N}_0$ with $i,j \in 1, \dots, k$ be the number of pixels which belong to
@@ -45,7 +47,10 @@ t_i}$. Taking the pixel-wise classification accuracy has two major drawbacks:
     \item \label{item:problem-large-regions} Tasks like segmenting images for
           autonomous cars have large regions which have one class. This makes
           achieving classification accuracies of more than \SI{30}{\percent}
-          with a priori knowledge only possible.
+          with a priori knowledge only possible. For example, a system might
+          learn that a certain position of the image is most of the time
+          \enquote{sky} while another position is most of the time
+          \enquote{road}.
     \item \label{item:problem-labeling-granularity} The manually labeled images
           could have a more coarse labeling. For example, a human classifier
           could have labeled a region as
@@ -63,7 +68,7 @@ Three accuracy metrics which do not suffer from
           ${({\sum_{p=1}^k t_p})}^{-1} \sum_i \frac{t_i n_{ii}}{t_i + \sum_{j=1}^k n_{ji} - n_{ii}}$
 \end{itemize}
 
-Another problem might be pixels which cannot be assigned one of the known
+Another problem might be pixels which cannot be assigned to one of the known
 classes. For this reason, \cite{shotton2006textonboost} makes use of a void
 class. This class gets completely ignored for all quality measures. Hence the
 total number of pixels is assumed to be $\text{width} \cdot \text{height} - \text{number of void pixels}$.
@@ -114,28 +119,22 @@ with results which were obtained using an Intel~i7-4820K with
 However, it does still make sense to mention the execution time as well as the
 hardware in individual papers. This gives the interested reader the possibility
 to estimate how difficult it might be to adjust the algorithm to work in the
-required time-constraints. Also, it should be noted if the algorithm can be
-executed in parallel as standard \glspl{GPU} on the consumer market can execute
-up to 256~kernels in parallel.
+required time-constraints.
 
 
 \subsubsection{Stability}%
 \label{subsubsec:stability-quality-measure}%
-The stability of segmentation is a desirable quality measure. One the one hand,
-there are some variants of images like slight blurring, Gaussian noise and
-similar which should not change the segmentation at all. Also, two images which
-show a slight change in perspective should also only result in slight changes
-in the segmentation~\cite{pantofaru2005comparison}.
-
-Another desirable stability criterion is parameter choice. If the
-segmentation algorithm has hyperparameters, then slightly changing those should
-also only result in minor differences of the resulting
-segmentations~\cite{pantofaru2005comparison}.
+A reasonable requirement on semantic segmentation algorithms is the stability
+of a segmentation over slight changes in the input image. When the image data
+is sightly blurred by smoke such as in~\cref{fig:smoke}, the segmentation
+should not change. Also, two images which show a slight change in perspective
+should also only result in slight changes in the
+segmentation~\cite{pantofaru2005comparison}.
 
 
 \subsubsection{Memory usage}
-Peak memory usage matters when segmentation algorithms get used in devices like
+Peak memory usage matters when segmentation algorithms are used in devices like
 smartphones or cameras, or when the algorithms have to finish in a given time
 frame, run on the \gls{GPU} and consume so much memory for single image
 segmentation that only the latest graphic cards can be used. However, no
-publication we found mentioned the peak memory usage.
+publication were available mentioning the peak memory usage.

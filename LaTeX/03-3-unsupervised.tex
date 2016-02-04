@@ -77,7 +77,7 @@ It was shown in~\cite{meilpa2001learning} that normalized cuts
 
 \Glspl{ACM} are algorithms which segment images roughly along edges, but also
 try to find a border which is smooth. This is done by defining a so called
-\textit{energy function} which will get minimized. They were initially
+\textit{energy function} which will be minimized. They were initially
 described in~\cite{kass1988snakes}. \Glspl{ACM} can be used to segment an image
 or to refine segmentation as it was done in~\cite{atkins1998fully} for brain
 \gls{MR} images.
@@ -89,7 +89,7 @@ map. Low values are catchment basins and the higher values between two
 neighboring catchment basins is the watershed. The catchment basins should
 contain what the developer wants to capture. This implies that those areas
 must be dark on grayscale images. The algorithm starts to fill the basins from
-the lowest point. When two basins get connected, a watershed is found. The
+the lowest point. When two basins are connected, a watershed is found. The
 algorithm stops when the highest point is reached.
 
 A detailed description of the watershed segmentation algorithm is given

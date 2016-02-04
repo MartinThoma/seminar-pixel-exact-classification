@@ -2,7 +2,8 @@
 
 \subsection{Features and Preprocessing methods}\label{subsec:features}%
 The choice of features is very important in traditional approaches.
-The most commonly used features are explained in the following.
+The most commonly used local and global features are explained in the following
+as well as feature dimensionality reduction algorithms.
 
 \subsubsection{Pixel Color}
 Pixel color in different image spaces (e.g. 3~features for RGB, 3~features for
@@ -14,7 +15,7 @@ color space has been proven to be superior to all others in all
 contexts~\cite{cheng2001color}. However, the most common choices seem to be RGB
 and HSI. Reasons for choosing RGB is simplicity and the support by programming
 languages, whereas the choice of the HSI color space might make it simpler for
-the classifier to get invariant to illumination. One reason for choosing
+the classifier to become invariant to illumination. One reason for choosing
 CIE-L*a*b* color space is that it approximates human perception of
 brightness~\cite{kasson1992analysis}. It follows that choosing the L*a*b color
 space helps algorithms to detect structures which are seen by humans. Another
@@ -25,7 +26,7 @@ can be applied to improve contrast~\cite{pizer1987adaptive,4228537}.
 \Gls{HOG} features interpret the image as a discrete function
 $I: \mathbb{N}^2 \rightarrow \Set{0, \dots, 255}$ which maps the position $(x,
 y)$ to a color. For each pixel, there are two gradients: The partial derivative
-of $x$ and $y$. Now the original image got transformed to two feature maps of
+of $x$ and $y$. Now the original image is transformed to two feature maps of
 equal size which represents the gradient. These feature maps are splitted into
 patches and a histogram of the directions is calculated for each patch.
 \gls{HOG} features were proposed in~\cite{1467360} and are used
@@ -33,13 +34,15 @@ in~\cite{bourdev2010detecting,felzenszwalb2010object} for segmentation tasks.
 
 
 \subsubsection{SIFT}
-\Gls{SIFT} feature descriptors find keypoints in an image. The image patch of
-the size $16 \times 16$ around the keypoint is taken. This patch is divided in
-$16$ distinct parts of the size $4 \times 4$. For each of those parts a
+\Gls{SIFT} feature descriptors describe keypoints in an image. The image patch
+of the size $16 \times 16$ around the keypoint is taken. This patch is divided
+in $16$ distinct parts of the size $4 \times 4$. For each of those parts a
 histogram of 8~orientations is calculated similar as for \gls{HOG} features.
 This results in a 128-dimensional feature vector for each keypoint.
 
-\Gls{SIFT} is described in detail in~\cite{raey}.
+It should be emphasized that SIFT is a global feature for a complete image.
+
+\Gls{SIFT} is described in detail in~\cite{raey} and are used in~\cite{plath2009multi}.
 
 
 \subsubsection{BOV}
@@ -84,7 +87,7 @@ by~\cite{smith2002tutorial}.
 
 One problem of \gls{PCA} is the fact that it does not distinguish different
 classes. This means it can happen that a perfectly linearly separable set of
-feature vectors gets not separable at all after applying \gls{PCA}.
+feature vectors becomes not separable at all after applying \gls{PCA}.
 
 There are many other techniques for dimensionality reduction. An overview and
 a comparison over some of them is given by~\cite{van2009dimensionality}.

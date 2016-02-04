@@ -17,19 +17,13 @@ pipline is visualized in~\cref{fig:segmentation-pipeline}.
     \caption{A typical segmentation pipeline gets raw pixel data, applies
              preprocessing techniques like scaling and feature extraction like
              HOG features. For training, data augmentation techniques such as
-             image rotation can get applied. For every single image, patches
-             of the image called \textit{windows} get extracted and those
-             windows get classified. The resulting semantic segmentation can
-             get refined by simple morphologic operations or by more complex
+             image rotation can be applied. For every single image, patches
+             of the image called \textit{windows} are extracted and those
+             windows are classified. The resulting semantic segmentation can
+             be refined by simple morphologic operations or by more complex
              approaches such as \glspl{MRF}.}
     \label{fig:segmentation-pipeline}
 \end{figure}
-
-% TODO Figure: - Raw Pixel data Preprocessing / Feature extraction
-% TODO ...:      ... this includes pyramids
-% TODO ...:-> data augmentation to get more training material and invariance
-% TODO ...:-> sliding window and a standard classifier
-% TODO ...:-> post-processing to assure consistency
 
 This approach was taken by~\cite{bittel2015pixel} and a majority of the VOC2007
 participants~\cite{pascal-voc-2007}. As this approach has to apply the patch

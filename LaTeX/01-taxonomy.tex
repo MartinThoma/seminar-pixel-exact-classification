@@ -13,20 +13,21 @@ single-class affiliation (see \cref{subsec:class-affiliation}) algorithms which
 work on grayscale or colored single pixel images (see \cref{subsec:input-data})
 in a completely automated, passive fashion (see \cref{subsec:operation-state}).
 
+
 \subsection{Allowed classes}\label{subsec:allowed-classes}
-Are the classes which are to be distinguished known at the time when the
-algorithm is developed or trained, or might there occur several objects which
-were never seen before?
+Semantic segmentation is a classification task. As such, the classes on which
+the algorithm is trained is a central design decision.
 
 Most algorithms work with a fixed set of classes; some even only work on binary
 classes like \textit{foreground vs
 background}~\cite{4228537,carreira2010constrained} or \textit{street vs no
 street}~\cite{bittel2015pixel}.
 
-There are also unsupervised segmentation algorithms which do not distinguish
-classes at all (see \cref{subsec:unsupervised-traditional-segmentation}) as
-well as segmentation algorithms which are able to recognize when they don't
-know a class. For example, in~\cite{gould2008multi} a
+However, there are also unsupervised segmentation algorithms which do not
+distinguish classes at all (see
+\cref{subsec:unsupervised-traditional-segmentation}) as well as segmentation
+algorithms which are able to recognize when they don't know a class. For
+example, in~\cite{gould2008multi} a
 \textbf{void class} was added for classes which were not in the training set.
 Such a void class was also used in the MSRCv2 dataset (see
 \cref{subsubsec:MSRCv2}) to make it possible to make more coarse segmentations
@@ -34,12 +35,12 @@ and thus having to spend less time annotating the image.
 
 
 \subsection{Class affiliation of pixels}\label{subsec:class-affiliation}
-Humans do an incredible job when looking at the world. For example, when we
-see a glass of water standing on a table we can automatically say that there is
-the glass and behind it the table, even if we only had a single image and were
-not allowed to move. This means we assign the coordinates of the glass at the
-same time two labels: Glass and table. Although there is much more work being
-done on \textbf{single class affiliation} segmentation algorithms, there is a
+Humans do an incredible job when looking at the world. For example, when we see
+a glass of water standing on a table we can automatically say that there is the
+glass and behind it the table, even if we only had a single image and were not
+allowed to move. This means we simultaneously two labels to the coordinates of
+the glass: Glass and table. Although there is much more work being done on
+\textbf{single class affiliation} segmentation algorithms, there is a
 publication about \textbf{multiple class affiliation}
 segmentation~\cite{levin2008spectral}. Similarly, recent publications in
 pixel-level object segmentation used layered models~\cite{yang2012layered}.
@@ -61,7 +62,8 @@ by application.
           image segmentation is the most wide-spread kind of segmentation, but
           using stereo images was already tried in~\cite{boykov2001fast}. It
           can be seen as a more natural way of segmentation as most mammals
-          have two eyes.
+          have two eyes. It can also be seen as being related to having
+          depth data.\\
           Co-segmentation as in~\cite{1640859,collins2012random} is the problem
           of finding a consistent segmentation for multiple images. This problem
           can be seen in two ways: One the one hand, it can be seen as the problem
@@ -80,10 +82,9 @@ by application.
 The operation state of the classifying machine can either be \textbf{active} as
 in~\cite{schiebener2011segmentation,schiebener2012discovery} where robots can
 move objects to find a segmentation or \textbf{passive}, where the received
-image cannot be influenced. However, being in a passive situation can be
-divided further by separating segmentation algorithms working in a completely
-\textbf{automatic} fashion versus algorithms working in an \textbf{interactive}
-mode. One example would a system where the user clicks on the background or
+image cannot be influenced. Among the passive algorithms, some segment in a
+completely \textbf{automatic} fashion, others work in an \textbf{interactive}
+mode. One example would be a system where the user clicks on the background or
 marks a coarse segmentation and the algorithm finds a fine-grained
 segmentation.
 \cite{boykov2000interactive,rother2004grabcut,protiere2007interactive}~describe

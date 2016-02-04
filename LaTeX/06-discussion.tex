@@ -1,0 +1,23 @@
+%!TEX root = vorlage.tex
+
+\section{Discussion}%
+\label{sec:discussion}
+Ohta et al. wrote~\cite{ohta1978analysis} 38~years ago. It is one of the first
+papers mentioning semantic segmentation. In this time, a lot of work was done
+and many different directions have been explored. Different kinds of semantic
+segmentation have emerged.
+
+The paper presents a taxonomy of those kinds of semantic segmentation and a
+brief overview of completely automatic, passive, semantic segmentation
+algorithms.
+
+Future work includes a comparative study of those algorithms on publicly
+available dataset such as the ones presented
+in~\cref{table:segmentation-databases}. Another open question is the influence
+of the problems described in~\cref{sec:problems}. This could be done using a
+subset of the thousands of images of Wikipedia Commons, such as \href{https://commons.wikimedia.org/wiki/Category:Blurring}{https://commons.wikimedia.org/wiki/Category:Blurring} for blurred images.
+
+A combination of different classifiers in an ensemble would be an interesting
+option to explore in order to improve accuracy. Another direction which is
+currently studied is combining classifiers such as neural networks with
+\glspl{CRF}~\cite{zheng2015conditional}.

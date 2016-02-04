@@ -2,29 +2,46 @@
 
 \subsection{Markov Random Fields}\label{subsec:markov-random-fields}
 \Glspl{MRF} are undirected probabilistic graphical models which are wide-spread
-model in computer vision. Detailed introductions to \glspl{MRF} are given by
-\cite{blake2011markov,murphy2012machine}. The following will only give a rough
-idea of \glspl{MRF}.
+model in computer vision. The overall idea of \glspl{MRF} is to assign a random
+variable for each feature and a random variable for each pixel which gets
+labeled. For example, a \gls{MRF} which is trained on images of the size
+$\SI{224}{\pixel} \times \SI{224}{pixel}$ and gets the raw RGB values as
+features has
+\[\underbrace{224 \cdot 224 \cdot 3}_{\text{input}} + \underbrace{224 \cdot 224}_{\text{output}} = \num{200704}\]
+random variables. Those random variables are conditionally independent, given
+their local neighborhood. These (in)dependencies can be expressed with a graph.
 
-Let $G=(\mathcal{V}, \mathcal{E})$ be the associated undirected graph and
-$\mathcal{C}$ be the set of all maximal cliques in that graph. Nodes represent
-random variables $\mathbf{x}$ and edges represent conditional dependencies.
-Just like in \cref{subsec:graph-based-image-segmentation}, the
+Let $G=(\mathcal{V}, \mathcal{E})$ be the associated undirected graph of an
+\gls{MRF} and $\mathcal{C}$ be the set of all maximal cliques in that graph.
+Nodes represent random variables $\mathbf{x}, \mathbf{y}$ and edges represent
+conditional dependencies. Just like in
+\crefname{subsec:graph-based-image-segmentation}, the
 4-neighborhood~\cite{shotton2006textonboost} and the 8-neighborhood are
 reasonable choices for constructing the graph.
 
-Now the probability of $\mathbf{x}$ can be expressed as
-\[P(\mathbf{x}) = \frac{1}{Z} e^{-E(\mathbf{x})}\]
-where $Z = \sum_{\mathbf{x}} e^{-E(\mathbf{x})}$ is a normalization term called
+Typically, random variables $\mathbf{y}$ represent the class of a single pixel,
+random variables $\mathbf{x}$ represent a pixel values and edges represent
+pixel neighborhood in computer vision problems segmentation problems where
+\glspl{MRF} are used. Accordingly, the random variables $\mathbf{y}$ live on
+$1, \dots, \text{nr of classes}$ and the random variables $\mathbf{x}$
+typically live on $0, \dots, 255$ or $[0, 1]$.
+
+The probability of $\mathbf{x}, \mathbf{y}$ can be expressed as
+\[P(\mathbf{x}, \mathbf{y}) = \frac{1}{Z} e^{-E(\mathbf{x}, \mathbf{y})}\]
+where $Z = \sum_{\mathbf{x}, \mathbf{y}} e^{-E(\mathbf{x}, \mathbf{y})}$ is a normalization term called
 the \textit{partition function} and $E$ is called the \textit{energy function}.
+A common choice for the energy function is
+\[E(\mathbf{x}, \mathbf{y}) = \sum_{c \in \mathcal{C}} \psi_c(\mathbf{x}, \mathbf{y})\]
+where $\psi$ is called a \textit{clique potential}. One choice for cliques
+of size two $\mathbf{x}, \mathbf{y} = (x_1, x_2)$ is~\cite{kato2006markov}
+\[\psi_c(x_1, x_2) = w \delta(x_1, x_2) = \begin{cases}+w &\text{if } x_1 \neq x_2\\-w &\text{if } x_1 = x_2\end{cases}\]
 
 According to~\cite{murphy2012machine}, the most common way of inference over
 the posterior \gls{MRF} in computer vision problems is \gls{MAP} estimation.
 
 
-
-
-\glspl{MRF} are used by \cite{zhang2001segmentation} and \cite{moser2012markov}
+Detailed introductions to \glspl{MRF} are given by
+\cite{blake2011markov,murphy2012machine}. \glspl{MRF} are used by \cite{zhang2001segmentation} and \cite{moser2012markov}
 for image segmentation.
 
 % Characterizations of MRF:
@@ -33,29 +50,10 @@ for image segmentation.
 % Structure: chain vs tree vs grid vs general graph; neighborhood size
 % Potentials: submodular, convex, compressible
 
-% Markov Random Fields (A Rough Guide)
-% http://www.mee.tcd.ie/~sigmedia/pmwiki/uploads/Main.Tutorials/mrf_tutorial.pdf
-
-% Markov Random Fields and Stochastic Image Models
-% http://cis-linux1.temple.edu/~latecki/Courses/RobotFall08/Papers/MRFBauman.pdf
-
-% Markov Random Fields
-% http://signal.ee.psu.edu/mrf.pdf
-
 % Markov Random Fields for Computer Vision (Part 1)
 % http://users.cecs.anu.edu.au/~sgould/papers/part1-MLSS-2011.pdf  --- very nice!
-
-% Markov Random Fields and Stochastic Image Models
-% https://engineering.purdue.edu/~bouman/publications/tutorials/mrf_tutorial/view.pdf
-
-% Markov Random Fields in Image Segmentation
-% http://web.inf.u-szeged.hu/~ssip/2011/PDF/ssip2011_Kato.pdf
-
-% Book about markov random fields in computer vision:
-% https://mitpress.mit.edu/sites/default/files/titles/content/9780262015776_sch_0001.pdf
-
-
-% \Glspl{CRF} and Boltzmann Machines are a variations of Markov random fields.
+% http://users.cecs.anu.edu.au/~sgould/papers/part2-MLSS-2011.pdf
+% http://users.cecs.anu.edu.au/~sgould/papers/part3-MLSS-2011.pdf
 
 % Markov Random Field Image Models and Their Applications to Computer Vision
 % http://www.mathunion.org/ICM/ICM1986.2/Main/icm1986.2.1496.1517.ocr.pdf
@@ -79,17 +77,9 @@ and joint probability distribution
 
 \[P(\mathbf{y} | \mathbf{x}) = \frac{1}{Z(\mathbf{x})} \prod_{c \in \mathcal{C}} \psi_c(\mathbf{y}_c | \mathbf{x})\]
 
-where $\psi_c$ are so called \textit{clique potentials}. The simplest way to
-define them would be the count of the class $\mathbf{y}_c$ given $\mathbf{x}$
-added with a positive smoothing constant to prevent the complete term from
-getting zero.
-
-Typically, random variables $\mathbf{y}$ represent the class of a single pixel,
-random variables $\mathbf{x}$ represent a pixel values and edges represent
-pixel neighborhood in computer vision problems segmentation problems where
-\glspl{MRF} are used. Accordingly, the random variables $\mathbf{y}$ live on
-$1, \dots, \text{nr of classes}$ and the random variables $\mathbf{x}$
-typically live on $0, \dots, 255$ or $[0, 1]$.
+The simplest way to define the clique potentials $\psi$ is the count of the
+class $\mathbf{y}_c$ given $\mathbf{x}$ added with a positive smoothing
+constant to prevent the complete term from getting zero.
 
 \Glspl{CRF} as described in~\cite{associative09} have reached top performance
 in PASCAL VOC 2010~\cite{VOC2010Results} and are also used in
