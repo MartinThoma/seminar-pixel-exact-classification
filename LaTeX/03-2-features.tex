@@ -6,17 +6,17 @@ The most commonly used local and global features are explained in the following
 as well as feature dimensionality reduction algorithms.
 
 \subsubsection{Pixel Color}
-Pixel color in different image spaces (e.g. 3~features for RGB, 3~features for
+Pixel color in different image spaces (\eg 3~features for RGB, 3~features for
 HSV, 1~feature for the gray-value) are the most widely used features. A typical
 image is in the RGB color space, but depending on the classifier and the
 problem another color space might result in better segmentations. RGB, YcBcr,
 HSL, Lab and YIQ are some examples used by \cite{cohen2015memory}. No single
 color space has been proven to be superior to all others in all
 contexts~\cite{cheng2001color}. However, the most common choices seem to be RGB
-and HSI. Reasons for choosing RGB is simplicity and the support by programming
-languages, whereas the choice of the HSI color space might make it simpler for
-the classifier to become invariant to illumination. One reason for choosing
-CIE-L*a*b* color space is that it approximates human perception of
+and HSI\@. Reasons for choosing RGB is simplicity and the support by
+programming languages, whereas the choice of the HSI color space might make it
+simpler for the classifier to become invariant to illumination. One reason for
+choosing CIE-L*a*b* color space is that it approximates human perception of
 brightness~\cite{kasson1992analysis}. It follows that choosing the L*a*b color
 space helps algorithms to detect structures which are seen by humans. Another
 way of improving the structure within an image is histogram equalization, which
@@ -76,13 +76,13 @@ An excellent explanation of textons can be found in~\cite{zhu2005textons}.
 
 \subsubsection{Dimensionality Reduction}
 High-resolution images have a lot of pixels. Having one or more feature per
-pixel results in many features. This makes training difficult while the higher
-resolution might not contain much more information. A simple approach to deal
-with this is downsampling the high-resolution image to a low-resolution
-variant. Another way of doing dimensionality reduction is \gls{PCA}, which is
-applied by~\cite{chen2011pixel}. The idea behind \gls{PCA} is to find a
-hyperplane on which all feature vectors can be projected with a minimal loss of
-information. A detailed description of \gls{PCA} is given
+pixel results in well over a million features. This makes training difficult
+while the higher resolution might not contain much more information. A simple
+approach to deal with this is downsampling the high-resolution image to a
+low-resolution variant. Another way of doing dimensionality reduction is
+\gls{PCA}, which is applied by~\cite{chen2011pixel}. The idea behind \gls{PCA}
+is to find a hyperplane on which all feature vectors can be projected with a
+minimal loss of information. A detailed description of \gls{PCA} is given
 by~\cite{smith2002tutorial}.
 
 One problem of \gls{PCA} is the fact that it does not distinguish different

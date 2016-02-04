@@ -6,10 +6,10 @@ Typically, semantic segmentation is done with a classifier which operates on
 fixed-size feature inputs and a \textit{sliding-window}
 approach~\cite{1467360,5490399,schroff2008object}. This means a classifier is
 trained on images of a fixed size. The trained classifier is then fed with
-\textit{windows}, that means rectangular regions of the image. Although the
-classifier gets an image patch of e.g. $\SI{51}{\pixel} \times \SI{51}{\pixel}$
-of the environment, it classifies only the center pixel. This segmentation
-pipline is visualized in~\cref{fig:segmentation-pipeline}.
+rectangular regions of the image which are called \textit{windows}. Although
+the classifier gets an image patch of e.g. $\SI{51}{\pixel} \times
+\SI{51}{\pixel}$ of the environment, it classifies only the center pixel. This
+segmentation pipeline is visualized in~\cref{fig:segmentation-pipeline}.
 
 \begin{figure}
     \centering
@@ -30,6 +30,10 @@ participants~\cite{pascal-voc-2007}. As this approach has to apply the patch
 classifier $512 \cdot 512 = \num{262144}$ times for images of size
 $\SI{512}{\pixel} \times \SI{512}{\pixel}$, there are techniques for speeding
 it up such as applying a stride and interpolating the results.
+
+Neural networks are able to apply the sliding window approach in a very
+efficient way by handling a trained network as a convolution and applying the
+convolution on the complete image.
 
 However, there are alternatives. Namely \glspl{MRF} and \glspl{CRF}
 which take the information of the complete image and segment it in an holistic

@@ -21,6 +21,7 @@
 \usepackage{braket} % needed for nice printing of sets
 \usepackage[english]{babel}
 \usepackage{mathtools}
+\usepackage{xspace}
 \usepackage[inner=2.5cm,outer=2.5cm,top=2.5cm,bottom=2cm,includeheadfoot]{geometry}
 \usepackage[xindy,toc]{glossaries}
 \loadglsentries[main]{glossary}
@@ -35,6 +36,8 @@
 \newlist{problemnr}{enumerate}{1}
 \setlist[problemnr]{label={P\arabic*}, ref=P\arabic*}
 \crefalias{problemnri}{problemnr}
+
+\newcommand*{\eg}{e.g.\@\xspace}
 
 
 \usepackage[binary-units,group-separator={,}]{siunitx}
