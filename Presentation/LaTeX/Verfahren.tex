@@ -3,8 +3,7 @@
 \subsection{Verfahren}
 
 \begin{frame}{Verfahren}
-    Allgemein
-    \begin{itemize}
+    \begin{itemize}[<+->]
         \item \textbf{Sliding Window + Allgemeiner Klassifizierer}
         \begin{itemize}
             \item Random Forests
@@ -17,8 +16,14 @@
 \end{frame}
 
 \begin{frame}{Random Forest}
-    \begin{itemize}
+    \begin{itemize}[<+->]
         \item Ensemble von Decision Trees
         \item Decision Trees sind Bäume für die Klassifikation
+        \begin{itemize}
+            \item Jeder innere Knoten trifft entspricht einer \texttt{if}-Abfrage.
+            \item Jedes Blatt entspricht einem Label.
+            \item \texttt{if}-Abfragen werden anhand der Features automatisch
+                  generiert.
+        \end{itemize}
     \end{itemize}
 \end{frame}
