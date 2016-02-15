@@ -1,0 +1,26 @@
+\documentclass[hyperref={pdfpagelabels=false},usepdftitle=false]{beamer}
+\usepackage{../templates/myStyle}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\begin{document}
+
+\title{\titleText}
+\subtitle{}
+\author{\tutor}
+\date{17. Februar 2016}
+\subject{Seminar Informatik}
+
+\frame{\titlepage}
+
+%\frame{
+%    \frametitle{Inhalte}
+%    \setcounter{tocdepth}{1}
+%    \tableofcontents
+%    \setcounter{tocdepth}{2}
+%}
+
+\input{Szenario}
+\input{Taxonomie}
+\input{Verfahren}
+\input{Ende}
+
+\end{document}
