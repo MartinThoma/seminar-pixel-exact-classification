@@ -106,7 +106,8 @@ A maximum upper bound on the execution time for the inference on a single image
 is a hard requirement for some applications. For example, in the case of
 autonomous cars an algorithm which classifies pixel as street or no-street
 and thus makes a semantic segmentation, every image needs to be processed
-within \SI{20}{\milli\second}~\cite{bittel2015pixel}.
+within \SI{20}{\milli\second}~\cite{bittel2015pixel}. This time is called
+\textbf{latency}.
 
 Most papers do not give exact values for the time their application needs. One
 reason might be that this is very hardware, implementation and in some cases
@@ -120,6 +121,11 @@ However, it does still make sense to mention the execution time as well as the
 hardware in individual papers. This gives the interested reader the possibility
 to estimate how difficult it might be to adjust the algorithm to work in the
 required time-constraints.
+
+Besides the latency, the \textbf{throughput} is another relevant characteristic
+of algorithms and implementations for semantic segmentation. For example, for
+the automatic description of images in order to enable text search the
+throughput is of much higher importance than latency.
 
 
 \subsubsection{Stability}%
