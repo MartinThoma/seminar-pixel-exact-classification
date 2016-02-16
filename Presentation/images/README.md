@@ -8,3 +8,4 @@ Salam
 * lung.png: "Automatic lung segmentation for accurate quantitation of volumetric X-ray CT images" by Hu, S.; Hoffman, E. & Reinhardt, J.
 * brain-mr.png: "A survey of Current Methods in Medical Image Segmentation" by Pham, D. L.; Xu, C. & Prince, J. L. 2000.
 * mammography.png: "A survey of Current Methods in Medical Image Segmentation" by Pham, D. L.; Xu, C. & Prince, J. L. 2000.
+* rf-comp-mining.png: https://www.vision.ee.ethz.ch/datasets_extra/food-101/
