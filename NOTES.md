@@ -13,6 +13,10 @@
 5. [IEEE International Conference on Computer Vision, ICCV](http://pamitc.org/iccv15/)
 6. [International Journal of Computer Vision]()
 
+## Data
+
+* http://crema.di.unimi.it/~fscotti/all/
+
 
 ## Questions
 
@@ -36,5 +40,6 @@ Annotation with Amazon Mechanical Turk is described
 
 ### Videos
 
+* Stephen Gould: [Scene Understanding by Labeling Pixels](https://vimeo.com/109982315)
 * [NYU Semantic Segmentation with a Convolutional Network (33 categories)](https://www.youtube.com/watch?v=ZJMtDRbqH40)
 * [Microsoft Deep Learning Semantic Image Segmentation](https://www.youtube.com/watch?v=FroRjEejA30)
