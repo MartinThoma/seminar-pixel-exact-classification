@@ -52,7 +52,7 @@ $(\mathbf{x}_i, y_i)$ where $\mathbf{x}_i$ is the feature vector and $y_i \in
           The optimization problem is now, according to~\cite{burges1998tutorial}:
           \begin{equation*}
           \begin{aligned}
-              \maximize_{\mathbf{w}}\,& \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
+              \maximize_{\alpha_i}\,& \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
               \text{s.t. } & \forall_{i=1}^m 0 \leq \alpha_i \leq C\\
               \text{s.t. } & \sum_{i=1}^m \alpha_i y_i = 0
           \end{aligned}
