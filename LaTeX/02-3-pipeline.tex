@@ -8,7 +8,8 @@ approach~\cite{1467360,5490399,schroff2008object}. This means a classifier is
 trained on images of a fixed size. The trained classifier is then fed with
 rectangular regions of the image which are called \textit{windows}. Although
 the classifier gets an image patch of e.g. $\SI{51}{\pixel} \times
-\SI{51}{\pixel}$ of the environment, it classifies only the center pixel. This
+\SI{51}{\pixel}$ of the environment, it might only classify the center pixel or
+a subset of the complete window. This
 segmentation pipeline is visualized in~\cref{fig:segmentation-pipeline}.
 
 \begin{figure}
