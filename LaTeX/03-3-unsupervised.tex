@@ -45,7 +45,7 @@ difference in color~\cite{felzenszwalb2004efficient,FelzenszwalbGraphCode}.
 There are several different candidates for edges. The 4-neighborhood (north,
 east, south west) or an 8-neighborhood (north, north-east, east, south-east,
 south, south-west, west, north-west) are plausible choices.
-One way to do the cuts is by building a minimum spanning tree and removing
+One way to cut the edges is by building a minimum spanning tree and removing
 edges above a threshold. This threshold can either be constant, adapted to the
 graph or adjusted by the user. After the edge-cutting step, the connected
 components are the segments.
@@ -60,7 +60,7 @@ of main memory~\cite{Carreira2011}.
 \subsubsection{Random Walks}
 
 Random walks belong to the graph-based image segmentation algorithms. Random
-walk image segmentation usually works as follows: Some seed points are placed
+walk image segmentation usually works as follows: Seed points are placed
 on the image for the different objects in the image. From every single pixel,
 the probability to reach the different seed points by a random walk is
 calculated. This is done by taking image gradients as described in
@@ -68,9 +68,6 @@ calculated. This is done by taking image gradients as described in
 class of which a seed point will be reached with highest probability. At first,
 this is an interactive segmentation method, but it can be extended to be
 non-interactive by using another segmentation methods output as seed points.
-
-It was shown in~\cite{meilpa2001learning} that normalized cuts
-(NCuts)~\cite{shi2000normalized} can be expressed with random walks.
 
 
 \subsubsection{Active Contour Models}
