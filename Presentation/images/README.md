@@ -9,3 +9,4 @@ Salam
 * brain-mr.png: "A survey of Current Methods in Medical Image Segmentation" by Pham, D. L.; Xu, C. & Prince, J. L. 2000.
 * mammography.png: "A survey of Current Methods in Medical Image Segmentation" by Pham, D. L.; Xu, C. & Prince, J. L. 2000.
 * rf-comp-mining.png: https://www.vision.ee.ethz.ch/datasets_extra/food-101/
+* kernel_convolution.jpg: https://commons.wikimedia.org/wiki/File:3D_Convolution_Animation.gif
