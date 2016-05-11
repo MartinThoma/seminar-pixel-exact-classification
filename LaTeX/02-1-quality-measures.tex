@@ -63,10 +63,10 @@ t_i}$. Taking the pixel-wise classification accuracy has two major drawbacks:
 Three accuracy metrics which do not suffer from
 \cref{item:problem-large-regions} are used in~\cite{long2014fully}:\nobreak%
 \begin{itemize}
-    \item \textit{mean accuracy}: $\frac{1}{k} \cdot \sum_{i=1}^k \frac{n_{ii}}{t_i}$
-    \item \textit{mean intersection over union}: \hfill\\$\frac{1}{k} \cdot \sum_{i=1}^k \frac{n_{ii}}{t_i + \sum_{j=1}^k n_{ji}-n_{ii}}$
+    \item \textit{mean accuracy}: $\frac{1}{k} \cdot \sum_{i=1}^k \frac{n_{ii}}{t_i} \in [0, 1]$
+    \item \textit{mean intersection over union}: \hfill\\$\frac{1}{k} \cdot \sum_{i=1}^k \frac{n_{ii}}{t_i - n_{ii} + \sum_{j=1}^k n_{ji}} \in [0, 1]$
     \item \textit{frequency weighted intersection over union}:
-          ${({\sum_{i=1}^k t_i})}^{-1} \sum_{i=1}^k \frac{t_i n_{ii}}{t_i + \sum_{j=1}^k n_{ji} - n_{ii}}$
+          ${({\sum_{i=1}^k t_i})}^{-1} \sum_{i=1}^k t_i \cdot \frac{n_{ii}}{t_i - n_{ii} + \sum_{j=1}^k n_{ji}} \in [0, 1]$
 \end{itemize}
 
 Another problem might be pixels which cannot be assigned to one of the known
