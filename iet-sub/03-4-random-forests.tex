@@ -1,0 +1,46 @@
+%!TEX root = vorlage.tex
+
+\subsection{Random Decision Forests}\label{subsec:random-forests}
+
+Random Decision Forests were first proposed in~\cite{ho1995random}. This type
+of classifier applies techniques called \textit{ensemble learning}, where
+multiple classifiers are trained and a combination of their hypotheses is
+used. One ensemble learning technique is the \textit{random subspaces} method
+where each classifier is trained on a random subspace of the feature~space.
+Another ensemble learning technique is \textit{bagging}, which is training the
+trees on random subsets of the training~set. In the case of Random Decision
+Forests, the classifiers are decision trees. A decision tree is a tree where
+each inner node uses one or more features to decide in which branch to descend.
+Each leaf is a class.
+
+One strength of Random Decision Forests compared to many other classifiers like
+\glspl{SVM} and neural networks is that the scale of measure of the features
+(nominal, ordinal, interval, ratio) can be arbitrary. Another advantage of
+Random Decision Forests compared to \glspl{SVM}, for example, is the speed
+of training and classification.
+
+Decision trees were extensively studied in the past 20~years and a
+multitude of training algorithms have been proposed (e.g. ID3
+in~\cite{quinlan1986induction}, C4.5 in~\cite{quinlan2014c4}). Possible
+training hyperparameters are the measure to evaluate the \enquote{goodness of
+split}~\cite{raey89empirical}, the number of decision trees being used, and if
+the depth of the trees is restricted. Typically in the context of
+classification, decision trees are trained by adding new nodes until
+each leaf contains only nodes of a single class or until it is not possible to
+split further. This is called a \textit{stopping criterion}.
+
+There are two typical training modes: \textit{Central axis projection} and
+\textit{perceptron training}. In training, for each node a hyperplane is
+searched which is optimal according to an error function.
+
+Random Decision Forests with texton features (see \cref{subsubsec:textons}) are
+applied in~\cite{shotton2008semantic} for segmentation. In the~\cite{MSCR-db}
+dataset, they report a per-pixel accuracy rate of \SI{66.9}{\percent} for their
+best system. This system requires \SI{415}{\milli\second} for the segmentation of
+$\SI{320}{\pixel} \times \SI{213}{\pixel}$ images on a single
+\SI{2.7}{\giga\hertz} core. On the Pascal VOC~2007 dataset, they report an
+average per-pixel accuracy for their best segmentation system
+of~\SI{42}{\percent}.
+
+An excellent introduction to Random Decision Forests for semantic segmentation
+is given by~\cite{schroff2008object}.

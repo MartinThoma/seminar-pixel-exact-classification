@@ -1,0 +1,98 @@
+%!TEX root = vorlage.tex
+
+\subsection{Unsupervised Segmentation}%
+\label{subsec:unsupervised-traditional-segmentation}%
+
+Unsupervised segmentation algorithms can be used in supervised segmentation as
+another source of information or to refine a segmentation. While unsupervised
+segmentation algorithms can never be semantic, they are well-studied and
+deserve at least a very brief overview.
+
+Semantic segmentation algorithms store information about the classes they were
+trained to segment while non-semantic segmentation algorithms try to detect
+consistent regions or region boundaries.
+
+
+\subsubsection{Clustering Algorithms}
+Clustering algorithms can directly be applied on the pixels, when one gives
+a feature vector per pixel. Two clustering algorithms are $k$-means and the
+mean-shift algorithm.
+
+The $k$-means algorithm is a general-purpose clustering algorithm which
+requires the number of clusters to be given beforehand. Initially, it places
+the $k$ centroids randomly in the feature space. Then it assigns each
+data point to the nearest centroid, moves the centroid to the center of the
+cluster and continues the process until a stopping criterion is reached. A
+faster variant is described in~\cite{hartigan1975clustering}.
+
+$k$-means was applied by~\cite{chen1998image} for medical image segmentation.
+
+Another clustering algorithm is the mean-shift algorithm which was introduced
+by~\cite{comaniciu2002mean} for segmentation tasks. The algorithm finds the
+cluster centers by initializing centroids at random seed points and iteratively
+shifting them to the mean coordinate within a certain range. Instead of taking
+a hard range constraint, the mean can also be calculated by using any kernel.
+This effectively applies a weight to the coordinates of the points. The mean
+shift algorithm finds cluster centers at positions with a highest local
+density of points.
+
+
+\subsubsection{Graph Based Image Segmentation}%
+\label{subsec:graph-based-image-segmentation}%
+Graph-based image segmentation algorithms typically interpret pixels as
+vertices and an edge weight is a measure of dissimilarity such as the
+difference in color~\cite{felzenszwalb2004efficient,FelzenszwalbGraphCode}.
+There are several different candidates for edges. The 4-neighborhood (north,
+east, south west) or an 8-neighborhood (north, north-east, east, south-east,
+south, south-west, west, north-west) are plausible choices.
+One way to cut the edges is by building a minimum spanning tree and removing
+edges above a threshold. This threshold can either be constant, adapted to the
+graph or adjusted by the user. After the edge-cutting step, the connected
+components are the segments.
+
+A graph-based method which ranked \nth{2} in the Pascal VOC 2010
+challenge~\cite{everingham2010pascal} is described
+in~\cite{carreira2010constrained}. The system makes heavy use of the multi-cue
+contour detector globalPb~\cite{4587420} and needs about \SI{10}{\giga\byte}
+of main memory~\cite{Carreira2011}.
+
+
+\subsubsection{Random Walks}
+
+Random walks belong to the graph-based image segmentation algorithms. Random
+walk image segmentation usually works as follows: Seed points are placed
+on the image for the different objects in the image. From every single pixel,
+the probability to reach the different seed points by a random walk is
+calculated. This is done by taking image gradients as described in
+\cref{subsec:features} for \gls{HOG} features. The class of the pixel is the
+class of which a seed point will be reached with highest probability. At first,
+this is an interactive segmentation method, but it can be extended to be
+non-interactive by using another segmentation methods output as seed points.
+
+
+\subsubsection{Active Contour Models}
+
+\Glspl{ACM} are algorithms which segment images roughly along edges, but also
+try to find a border which is smooth. This is done by defining a so called
+\textit{energy function} which will be minimized. They were initially
+described in~\cite{kass1988snakes}. \Glspl{ACM} can be used to segment an image
+or to refine segmentation as it was done in~\cite{atkins1998fully} for brain
+\gls{MR} images.
+
+
+\subsubsection{Watershed Segmentation}\label{subsec:watershed}
+The watershed algorithm takes a grayscale image and interprets it as a height
+map. Low values are catchment basins and the higher values between two
+neighboring catchment basins is the watershed. The catchment basins should
+contain what the developer wants to capture. This implies that those areas
+must be dark on grayscale images. The algorithm starts to fill the basins from
+the lowest point. When two basins are connected, a watershed is found. The
+algorithm stops when the highest point is reached.
+
+A detailed description of the watershed segmentation algorithm is given
+in~\cite{roerdink2000watershed}.
+
+The watershed segmentation was used in~\cite{1260033} to segment white blood
+cells. As the authors describe, the segmentation by watershed transform has
+two flaws: Over-segmentation due to local minima and thick watersheds due to
+plateaus.

@@ -1,0 +1,34 @@
+%!TEX root = vorlage.tex
+
+\section{Introduction}\label{sec:introduction}
+Semantic segmentation is the task of clustering parts of images together which
+belong to the same object class. This type of algorithm has several use-cases
+such as detecting road signs~\cite{4220659}, detecting
+tumors~\cite{moon2002automatic}, detecting medical instruments in
+operations~\cite{wei1997automatic}, colon crypts
+segmentation~\cite{cohen2015memory}, land use and land cover
+classification~\cite{huang2002assessment}. In contrast, non-semantic
+segmentation only clusters pixels together based on general characteristics of
+single objects. Hence the task of non-semantic segmentation is not
+well-defined, as many different segmentations might be acceptable.
+
+Several applications of segmentation in medicine are listed
+in~\cite{annurev.bioeng.2.1.315}.
+
+Object detection, in comparison to semantic segmentation, has to distinguish
+different instances of the same object. While having a semantic segmentation is
+certainly a big advantage when trying to get object instances, there are a
+couple of problems: neighboring pixels of the same class might belong to
+different object instances and regions which are not connected my belong to the
+same object instance. For example, a tree in front of a car which visually
+divides the car into two parts.
+
+This paper is organized as follows: It begins by giving a taxonomy of
+segmentation algorithms in \cref{sec:taxonomy}. A summary of quality measures
+and datasets which are used for semantic segmentation follows in
+\cref{sec:evaluation-and-datasets}. A summary of traditional
+segmentation algorithms and their characteristics follows in
+\cref{sec:traditional-approaches}, as well as a brief, non-exhaustive
+summary of recently published semantic segmentation algorithms which are based
+on neural networks in \cref{sec:nn}. Finally, \cref{sec:problems} informs the
+reader about typical problematic cases for segmentation algorithms.

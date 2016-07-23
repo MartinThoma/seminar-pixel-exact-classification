@@ -1,0 +1,93 @@
+%!TEX root = vorlage.tex
+
+\subsection{Features and Preprocessing methods}\label{subsec:features}%
+The choice of features is very important in traditional approaches.
+The most commonly used local and global features are explained in the following
+as well as feature dimensionality reduction algorithms.
+
+\subsubsection{Pixel Color}
+Pixel color in different image spaces (\eg 3~features for RGB, 3~features for
+HSV, 1~feature for the gray-value) are the most widely used features. A typical
+image is in the RGB color space, but depending on the classifier and the
+problem another color space might result in better segmentations. RGB, YcBcr,
+HSL, Lab and YIQ are some examples used by \cite{cohen2015memory}. No single
+color space has been proven to be superior to all others in all
+contexts~\cite{cheng2001color}. However, the most common choices seem to be RGB
+and HSI\@. Reasons for choosing RGB is simplicity and the support by
+programming languages, whereas the choice of the HSI color space might make it
+simpler for the classifier to become invariant to illumination. One reason for
+choosing CIE-L*a*b* color space is that it approximates human perception of
+brightness~\cite{kasson1992analysis}. It follows that choosing the L*a*b color
+space helps algorithms to detect structures which are seen by humans. Another
+way of improving the structure within an image is histogram equalization, which
+can be applied to improve contrast~\cite{pizer1987adaptive,4228537}.
+
+\subsubsection{Histogram of oriented Gradients}
+\Gls{HOG} features interpret the image as a discrete function
+$I: \mathbb{N}^2 \rightarrow \Set{0, \dots, 255}$ which maps the position $(x,
+y)$ to a color. For each pixel, there are two gradients: The partial derivative
+of $x$ and $y$. Now the original image is transformed to two feature maps of
+equal size which represents the gradient. These feature maps are splitted into
+patches and a histogram of the directions is calculated for each patch.
+\gls{HOG} features were proposed in~\cite{1467360} and are used
+in~\cite{bourdev2010detecting,felzenszwalb2010object} for segmentation tasks.
+
+
+\subsubsection{SIFT}
+\Gls{SIFT} feature descriptors describe keypoints in an image. The image patch
+of the size $16 \times 16$ around the keypoint is taken. This patch is divided
+in $16$ distinct parts of the size $4 \times 4$. For each of those parts a
+histogram of 8~orientations is calculated similar as for \gls{HOG} features.
+This results in a 128-dimensional feature vector for each keypoint.
+
+It should be emphasized that SIFT is a global feature for a complete image.
+
+\Gls{SIFT} is described in detail in~\cite{raey} and are used in~\cite{plath2009multi}.
+
+
+\subsubsection{BOV}
+\Gls{BOV}, also called \textit{bag of keypoints}, is based on vector
+quantization. Similar to \gls{HOG} features, \gls{BOV} features are histograms
+which count the number of occurrences of certain patterns within a patch of the
+image. \Gls{BOV} are described in~\cite{csurka2004visual} and used in
+combination with \gls{SIFT} feature descriptors in~\cite{csurka2008simple}.
+
+
+\subsubsection{Poselets}
+\textit{Poselets} rely on manually added extra keypoints such as \enquote{right
+shoulder}, \enquote{left shoulder}, \enquote{right knee} and \enquote{left
+knee}. They were originally used for human pose estimation. Finding those extra
+keypoints is easily possible for well-known image classes like humans. However,
+it is difficult for classes like airplanes, ships, organs or cells where the
+human annotators do not know the keypoints. Additionally, the keypoints have to
+be chosen for every single class. There are strategies to deal with those
+problems like viewpoint-dependent keypoints. Poselets were used
+in~\cite{bourdev2010detecting} to detect people and in~\cite{brox2011object}
+for general object detection of the PASCAL VOC dataset.
+
+\subsubsection{Textons}\label{subsubsec:textons}
+A \textit{texton} is the minimal building block of vision. The computer vision
+literature does not give a strict definition for textons, but edge detectors
+could be one example. One might argue that deep learning techniques with
+\glspl{CNN} learn textons in the first filters.
+
+An excellent explanation of textons can be found in~\cite{zhu2005textons}.
+
+
+\subsubsection{Dimensionality Reduction}
+High-resolution images have a lot of pixels. Having one or more feature per
+pixel results in well over a million features. This makes training difficult
+while the higher resolution might not contain much more information. A simple
+approach to deal with this is downsampling the high-resolution image to a
+low-resolution variant. Another way of doing dimensionality reduction is
+\gls{PCA}, which is applied by~\cite{chen2011pixel}. The idea behind \gls{PCA}
+is to find a hyperplane on which all feature vectors can be projected with a
+minimal loss of information. A detailed description of \gls{PCA} is given
+by~\cite{smith2002tutorial}.
+
+One problem of \gls{PCA} is the fact that it does not distinguish different
+classes. This means it can happen that a perfectly linearly separable set of
+feature vectors becomes not separable at all after applying \gls{PCA}.
+
+There are many other techniques for dimensionality reduction. An overview and
+a comparison over some of them is given by~\cite{van2009dimensionality}.
